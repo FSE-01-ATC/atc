@@ -1,0 +1,35 @@
+@import "../global/variables";
+
+.login {
+  height: 50px;
+}
+
+.login__link {
+  display: block;
+  height: 50px;
+  line-height: 50px;
+  color: $white;
+  font-size: 14px;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  &:hover {
+    color: $green;
+  }
+}
+
+.login__link--active {
+  pointer-events: none;
+  cursor: default;
+  position: relative;
+
+  &:after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 2px;
+    background-color: $white;
+    bottom: 10px;
+    left: 0;
+  }
+}

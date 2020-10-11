@@ -1,0 +1,13 @@
+/*-----colors-----*/
+$black: #12152a;
+$green: #40ba21;
+$white: #ffffff;
+
+/*-----sizes-----*/
+$mobile-width: 320px;
+$tablet-width: 768px;
+$desktop-width: 1300px;
+
+/*-----retina-----*/
+$retina-dpi: 144dpi;
+$retina-dppx: 1.5dppx;

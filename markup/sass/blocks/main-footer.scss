@@ -1,0 +1,20 @@
+@import "../global/variables";
+
+.main-footer {
+  background-color: $black;
+  font-family: "Arial", sans-serif;
+}
+
+.main-footer__wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-footer__copyright {
+  height: 50px;
+}
+
+.main-footer__title {
+  color: $white;
+  font-size: 14px;
+}

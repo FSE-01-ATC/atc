@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+<header class="main-header">
+  <div class="main-header__wrapper wrapper">
+    <nav class="main-header__navigation navigation">
+      <ul class="navigation__list">
+        <li class="navigation__list-item">
+          <a href="index.html" class="navigation__item-link">Time Table</a>
+        </li>
+        <li class="navigation__list-item">
+          <a href="settings-prof.html" class="navigation__item-link navigation__item-link--active">Settings</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="main-header__login login">
+      <span class="login__field"><a href="#" class="login__link">Log in</a></span>
+    </div>
+  </div>
+</header>
+<main class="main-settings">
+  <div class="main-settings__wrapper wrapper">
+    <form class="main-settings__form form">
+      <fieldset class="form__fieldset">
+        <legend class="form__legend visually-hidden">Choose your working days</legend>
+        <h3 class="form__title">Choose your working days</h3>
+
+        <div class="form__container">
+          <div class="form__element">
+            <label for="monday" class="form__label">Monday</label>
+            <input id="monday" type="checkbox" name="monday">
+          </div>
+
+          <div class="form__element">
+            <label for="tuesday" class="form__label">Tuesday</label>
+            <input id="tuesday" type="checkbox" name="tuesday">
+          </div>
+
+          <div class="form__element">
+            <label for="wednesday" class="form__label">Wednesday</label>
+            <input id="wednesday" type="checkbox" name="wednesday">
+          </div>
+
+          <div class="form__element">
+            <label for="thursday" class="form__label">Thursday</label>
+            <input id="thursday" type="checkbox" name="thursday">
+          </div>
+
+          <div class="form__element">
+            <label for="friday" class="form__label">Friday</label>
+            <input id="friday" type="checkbox" name="friday">
+          </div>
+
+          <div class="form__element">
+            <label for="saturday" class="form__label">Saturday</label>
+            <input id="saturday" type="checkbox" name="saturday" class="form__checkbox">
+          </div>
+        </div>
+      </fieldset>
+      <fieldset class="form__fieldset fieldset-preferences">
+        <legend class="form__legend visually-hidden">Specify the professors/TA you don't want to teach the course with</legend>
+        <h3 class="form__title">Specify the professors/TA<br>you don't want to teach the course with</h3>
+
+        <div class="form__container">
+          <label><select class="form__select" id="form-select-1" name="form-select-1">
+            <option>Name1 Surname1</option>
+            <option>Name2 Surname2</option>
+            <option>Name3 Surname3</option>
+            <option>Name4 Surname3</option>
+          </select></label>
+        </div>
+        <a href="#" class="form__button-add">Add new field</a>
+      </fieldset>
+      <button type="submit" class="button button--submit">Submit</button>
+    </form>
+  </div>
+</main>
+<footer class="main-footer">
+  <div class="main-footer__wrapper wrapper">
+    <section class="main-footer__copyright">
+      <h3 class="main-footer__title">(c) Innopolis University 2020</h3>
+    </section>
+  </div>
+</footer>
+
+<script src="js/button-add-field.js"></script>
+</body>
+</html>
