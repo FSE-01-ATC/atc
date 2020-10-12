@@ -1,0 +1,11 @@
+@import "../global/variables";
+
+.main-header {
+  background-color: $black;
+  font-family: "Arial", sans-serif;
+}
+
+.main-header__wrapper {
+  display: flex;
+  justify-content: space-between;
+}

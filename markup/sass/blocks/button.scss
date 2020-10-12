@@ -1,0 +1,24 @@
+@import "../global/variables";
+
+.button {
+  width: auto;
+  display: inline-block;
+  padding: 11px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: $green;
+  font-family: "Arial", sans-serif;
+  font-size: 14px;
+  line-height: 18px;
+  text-transform: uppercase;
+  text-align: center;
+  color: #ffffff;
+
+  &:hover {
+    background-color: #53aa2f;
+  }
+
+  &:active {
+    color: rgba(#ffffff, 0.3);
+  }
+}
