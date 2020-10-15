@@ -1,0 +1,56 @@
+@import "../global/variables";
+@import "../global/mixins";
+
+.tabs {
+  @include list-style;
+  display: flex;
+  position: relative;
+  margin-left: 70px;
+}
+
+.tabs--column {
+  @include list-style;
+  margin-top: 56px;
+  position: absolute;
+  left: 0;
+  top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.tabs__tab {
+  display: block;
+  position: relative;
+  top: 4px;
+  width: 100px;
+  height: 40px;
+  text-align: center;
+  padding: 10px 0;
+  margin-right: 8px;
+  border-radius: 5px 5px 0 0;
+  background: $green;
+  opacity: 0.5;
+  transition: all 0.1s ease-in-out;
+
+  &--active {
+    opacity: 1;
+    pointer-events: none;
+    cursor: default;
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.tabs--column .tabs__tab {
+  display: block;
+  margin-bottom: 70px;
+  transform: rotate(-90deg);
+}
+
+.tabs__link {
+  font-size: 14px;
+  text-decoration: none;
+  color: #000000;
+}
