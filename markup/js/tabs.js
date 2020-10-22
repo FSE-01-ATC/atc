@@ -1,11 +1,14 @@
 const container = document.querySelector(`.tabs-container`);
-const tabsYear = container.querySelector(`.tabs`);
-const tabsGroup = container.querySelector(`.tabs--column`);
+const tabsGroup = container.querySelector(`.tabs--group`);
+const tabsYear = container.querySelector(`.tabs--year`);
 const tabsContent = container.querySelector(`.tabs-content`);
 
 const tabsYearArray = tabsYear.querySelectorAll(`.tabs__link`);
 const tabsGroupArray = tabsGroup.querySelectorAll(`.tabs__link`);
 const panelsArray = tabsContent.querySelectorAll(`.tabs-content__panel`);
+
+console.log(tabsYearArray);
+console.log(tabsGroupArray);
 
 for (let tab of tabsYearArray) {
   tab.addEventListener(`click`, (e) => {
