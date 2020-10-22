@@ -1,0 +1,33 @@
+@import "../global/variables";
+@import "../global/mixins";
+
+.table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table__tr:not(:first-child) {
+  border: 1px solid $black;
+  height: 150px;
+}
+
+.table__td {
+  text-align: center;
+  max-width: 150px;
+  border: 1px solid $black;
+}
+
+.table__list {
+  @include list-style;
+  display: flex;
+  height: 150px;
+  box-sizing: border-box;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.table__list-item {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
