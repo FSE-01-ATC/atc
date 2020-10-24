@@ -1,6 +1,5 @@
 .idea/*
 .env
-atc-env
 
 ### Django ###
 *.log
