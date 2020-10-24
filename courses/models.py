@@ -20,8 +20,8 @@ TIMESLOT_CHOICES = [
 
 
 class Course(models.Model):
-    code = models.CharField(max_length=16, blank=True)
-    name = models.CharField(max_length=128, blank=True)
+    code = models.CharField(max_length=16)
+    name = models.CharField(max_length=128)
     
     def __str__(self):
         return f'{self.name}'
@@ -31,14 +31,14 @@ class Class(models.Model):
     day = models.CharField(max_length=9, choices=DAY_CHOICES)
     _type = models.CharField(max_length=8, choices=TYPE_CHOICES)
     timeslot = models.CharField(max_length=11, choices=TIMESLOT_CHOICES)
-    course = models.ForeignKey(Course, on_delete=models.CASCADE)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='classes')
 
     def __str__(self):
         return f'{self.course} - {self.get__type_display()}'
 
 
 class Room(models.Model):
-    number = models.IntegerField(default=0)
+    number = models.IntegerField()
     _type = models.CharField(max_length=8, choices=TYPE_CHOICES)
     can_hold = models.ManyToManyField(Class)
 
