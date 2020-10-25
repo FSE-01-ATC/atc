@@ -34,7 +34,6 @@ for (let tab of tabsYearArray) {
 for (let tab of tabsGroupArray) {
   tab.addEventListener(`click`, (e) => {
     e.preventDefault();
-    console.log(e);
     tabsGroup.querySelector(`.tabs__tab--active`).classList.remove(`tabs__tab--active`);
     tabsContent.querySelector(`.tabs-content__panel--active`).classList.remove(`tabs-content__panel--active`);
 
