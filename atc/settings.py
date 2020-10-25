@@ -27,6 +27,7 @@ INSTALLED_APPS = [
 
     # custom apps
     'courses',
+    'roles',
 ]
 
 MIDDLEWARE = [
