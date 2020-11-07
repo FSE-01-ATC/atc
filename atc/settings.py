@@ -28,6 +28,9 @@ INSTALLED_APPS = [
     # custom apps
     'courses',
     'roles',
+
+    # third-party apps
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

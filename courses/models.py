@@ -1,5 +1,8 @@
 from django.db import models
+from django.core.validators import MinValueValidator, MaxValueValidator
 import calendar
+
+from roles.models import Professor, TeacherAssistant, Group
 
 
 DAY_CHOICES = [(str(i), calendar.day_name[i]) for i in range(0, 7)]
@@ -18,19 +21,26 @@ TIMESLOT_CHOICES = [
     ('7', '19:20-20:50')
 ]
 
+DEGREE_TYPES = (
+    ('BS', 'Bachelor'),
+    ('MS', 'Master')
+)
+
 
 class Course(models.Model):
     code = models.CharField(max_length=16)
+    degree = models.CharField(max_length=16, choices=DEGREE_TYPES, default='BS')
+    year = models.IntegerField(validators=(MinValueValidator(12), MaxValueValidator(24)), default=19)
     name = models.CharField(max_length=128)
-    
+    instructor = models.ForeignKey(Professor, related_name='courses', on_delete=models.SET_NULL, null=True, blank=True)
+    assistants = models.ManyToManyField(TeacherAssistant, related_name='courses')
+
     def __str__(self):
         return f'{self.name}'
 
 
 class Class(models.Model):
-    day = models.CharField(max_length=9, choices=DAY_CHOICES)
     _type = models.CharField(max_length=8, choices=TYPE_CHOICES)
-    timeslot = models.CharField(max_length=11, choices=TIMESLOT_CHOICES)
     course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='classes')
 
     def __str__(self):
@@ -44,3 +54,15 @@ class Room(models.Model):
 
     def __str__(self):
         return f'room {self.number}'
+
+
+class ScheduledClass(models.Model):
+    day = models.CharField(max_length=9, choices=DAY_CHOICES)
+    timeslot = models.CharField(max_length=11, choices=TIMESLOT_CHOICES)
+    _class = models.ForeignKey(Class, related_name='scheduled_classes', on_delete=models.CASCADE)
+    assistant = models.ForeignKey(TeacherAssistant, related_name='scheduled_classes', on_delete=models.SET_NULL, default=None, null=True, blank=True)
+    room = models.ForeignKey(Room, related_name='scheduled_classes', on_delete=models.SET_NULL, null=True, blank=True)
+    group = models.ForeignKey(Group, related_name='scheduled_classes', on_delete=models.SET_NULL, null=True, blank=True)
+
+    def __str__(self):
+        return f'Scheduled class #{self.pk}'
