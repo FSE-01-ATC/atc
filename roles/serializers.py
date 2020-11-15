@@ -38,9 +38,3 @@ class ProfessorDislikesSerializer(serializers.ModelSerializer):
     class Meta:
         model = Professor
         fields = ('id', 'dislikes')
-
-    def update(self, instance, validated_data):
-        print(validated_data)
-        disliked_ids = validated_data['dislikes']
-        instance.dislikes.extend(disliked_ids)
-        return instance
