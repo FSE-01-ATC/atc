@@ -41,8 +41,8 @@ class TeacherAssistant(models.Model):
 class Professor(models.Model):
     user = models.OneToOneField(get_user_model(), on_delete=models.SET_NULL, blank=False, null=True)
     email = models.EmailField(max_length=64)
-    likes = models.ManyToManyField(TeacherAssistant, related_name='liked_professors')
-    dislikes = models.ManyToManyField(TeacherAssistant, related_name='disliked_professors')
+    likes = models.ManyToManyField(TeacherAssistant, related_name='liked_professors', blank=True)
+    dislikes = models.ManyToManyField(TeacherAssistant, related_name='disliked_professors', blank=True)
 
     def __str__(self):
         return f"Professor {self.email}"

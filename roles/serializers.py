@@ -27,3 +27,20 @@ class ProfessorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Professor
         fields = '__all__'
+
+
+class ProfessorDislikesSerializer(serializers.ModelSerializer):
+    dislikes = serializers.PrimaryKeyRelatedField(
+        many=True,
+        read_only=True
+    )
+
+    class Meta:
+        model = Professor
+        fields = ('id', 'dislikes')
+
+    def update(self, instance, validated_data):
+        print(validated_data)
+        disliked_ids = validated_data['dislikes']
+        instance.dislikes.extend(disliked_ids)
+        return instance
