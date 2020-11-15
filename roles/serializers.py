@@ -27,3 +27,14 @@ class ProfessorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Professor
         fields = '__all__'
+
+
+class ProfessorDislikesSerializer(serializers.ModelSerializer):
+    dislikes = serializers.PrimaryKeyRelatedField(
+        many=True,
+        read_only=True
+    )
+
+    class Meta:
+        model = Professor
+        fields = ('id', 'dislikes')
