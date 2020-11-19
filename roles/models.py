@@ -39,7 +39,7 @@ class TeacherAssistant(models.Model):
 
 # ToDo: Validate that 'likes' and 'dislikes' sets do not intersect
 class Professor(models.Model):
-    user = models.OneToOneField(get_user_model(), on_delete=models.SET_NULL, blank=False, null=True)
+    user = models.OneToOneField(get_user_model(), related_name='professor', on_delete=models.SET_NULL, blank=False, null=True)
     email = models.EmailField(max_length=64)
     likes = models.ManyToManyField(TeacherAssistant, related_name='liked_professors', blank=True)
     dislikes = models.ManyToManyField(TeacherAssistant, related_name='disliked_professors', blank=True)
