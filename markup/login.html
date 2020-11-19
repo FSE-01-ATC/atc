@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Log in</title>
+  <link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+<header class="main-header">
+  <div class="main-header__wrapper wrapper">
+    <nav class="main-header__navigation navigation">
+      <ul class="navigation__list">
+        <li class="navigation__list-item">
+          <a href="index.html" class="navigation__item-link">Time Table</a>
+        </li>
+        <li class="navigation__list-item">
+          <a href="settings-prof.html" class="navigation__item-link">Settings</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="main-header__login login">
+      <a href="login.html" class="login__link">Log in</a>
+    </div>
+  </div>
+</header>
+<div class="login-popup">
+    <form method="post" class="login-popup__form" action="http://localhost:8000/api/professor/auth">
+      <label class="login-popup__label">
+          Innopolis mail:
+        <input class="login-popup__input" type="email" name="email" placeholder="i.ivanov@innopolis.ru">
+      </label>
+      <label class="login-popup__label">
+          Password:
+        <input class="login-popup__input" type="password" name="password" placeholder="password">
+      </label>
+      <button class="button login-popup__button" type="submit">Log in</button>
+    </form>
+  </div>
+<footer class="main-footer">
+  <div class="main-footer__wrapper wrapper">
+    <section class="main-footer__copyright">
+      <h3 class="main-footer__title">(c) Innopolis University 2020</h3>
+    </section>
+  </div>
+</footer>
+</body>
+</html>
