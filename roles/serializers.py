@@ -11,6 +11,22 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ('first_name', 'last_name')
 
 
+class UserLoginSerializer(serializers.Serializer):
+    email = serializers.CharField()
+    password = serializers.CharField()
+
+    def validate(self, data):
+        try:
+            user = get_user_model().objects.get(email=data['email'])
+            valid_password = user.check_password(data['password'])
+            if user and user.is_active and valid_password:
+                return user
+            else:
+                return serializers.ValidationError("Incorrect credentials")
+        except:
+            return serializers.ValidationError("Incorrect credentials")
+
+
 class TASerializer(serializers.ModelSerializer):
     user = UserSerializer(read_only=True)
 
