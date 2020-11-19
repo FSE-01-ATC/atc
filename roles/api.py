@@ -5,7 +5,23 @@ from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
 
 from roles.models import Professor, TeacherAssistant
-from roles.serializers import ProfessorSerializer, ProfessorDislikesSerializer, TASerializer
+from roles.serializers import UserLoginSerializer, ProfessorSerializer, ProfessorDislikesSerializer, TASerializer
+
+
+class ProfessorLoginAPI(generics.GenericAPIView):
+    serializer_class = UserLoginSerializer
+
+    def post(self, request):
+        serializer = self.serializer_class(data=request.data, context={'request': request})
+        serializer.is_valid(raise_exception=True)
+        user = serializer.validated_data
+        if hasattr(user, 'professor'):
+            return Response({
+                'user': ProfessorSerializer(user.professor, context=self.get_serializer_context()).data
+            }, status=status.HTTP_200_OK)
+        return Response({
+            'message': 'Incorrect Credentials'
+        }, status=status.HTTP_401_UNAUTHORIZED)
 
 
 class ProfessorListAPI(generics.ListAPIView):
