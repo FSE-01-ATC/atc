@@ -7,9 +7,6 @@ const tabsYearArray = tabsYear.querySelectorAll(`.tabs__link`);
 const tabsGroupArray = tabsGroup.querySelectorAll(`.tabs__link`);
 const panelsArray = tabsContent.querySelectorAll(`.tabs-content__panel`);
 
-console.log(tabsYearArray);
-console.log(tabsGroupArray);
-
 for (let tab of tabsYearArray) {
   tab.addEventListener(`click`, (e) => {
     e.preventDefault();
